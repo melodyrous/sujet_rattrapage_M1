@@ -28,7 +28,7 @@
                 var main = document.getElementById("maincontent")
                 for (saian in data){
                     var img = document.createElement("img");
-                    img.src = uri_images + saian["picture"];
+                    img.src = uri_images + data[saian]["picture"];
                     main.appendChild(img)
                 }
                 

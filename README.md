@@ -31,6 +31,12 @@ Code testé dans la console:
                 })
         }
     )
+
+    var s1 = saianc1[0]
+
+    document.getElementById("img1").src = uri_images + s1["picture"]
+
+
 ```
 
 
