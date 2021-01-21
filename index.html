@@ -7,10 +7,10 @@
 
     <body>
         <div id=maincontent>
-            <img id="img1" src="" >
+            <!-- <img id="img1" src="" >
             <img id="img2" src="" >
             <img id="img3" src="" >
-            <img id="img4" src="" >
+            <img id="img4" src="" > -->
 
         </div>
     </body>
@@ -19,11 +19,20 @@
 <script>
     var saianc1
     var saianc2
+
+    var uri_images = "https://otakuotake.herokuapp.com/images/";
+
     fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
         function(response){
              response.json().then(function(data){
-                saianc1 = data
-                })
+                var main = document.getElementById("maincontent")
+                for (saian in data){
+                    var img = document.createElement("img");
+                    img.src = uri_images + saian["picture"];
+                    main.appendChild(img)
+                }
+                
+            })
         }
     )
     // fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
@@ -33,10 +42,10 @@
     //             })
     //     }
     // )
-    var uri_images = "https://otakuotake.herokuapp.com/images/"
-    var s1 = saianc1[0]
-    var s2 = saianc1[1]
-    document.getElementById("img1").src = uri_images + s1["picture"]
-    document.getElementById("img2").src = uri_images + s2["picture"]
+    // var uri_images = "https://otakuotake.herokuapp.com/images/";
+    // var s1 = saianc1[0];
+    // var s2 = saianc1[1];
+    // document.getElementById("img1").src = uri_images + s1["picture"];
+    // document.getElementById("img2").src = uri_images + s2["picture"];
 
 </script>
