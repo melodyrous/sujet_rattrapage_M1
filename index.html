@@ -26,17 +26,17 @@
                 })
         }
     )
-    fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
-        function(response){
-             response.json().then(function(data){
-                saianc2 = data
-                })
-        }
-    )
+    // fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
+    //     function(response){
+    //          response.json().then(function(data){
+    //             saianc2 = data
+    //             })
+    //     }
+    // )
     var uri_images = "https://otakuotake.herokuapp.com/images/"
-
-    s1 = saianc1[0]
-
+    var s1 = saianc1[0]
+    var s2 = saianc1[1]
     document.getElementById("img1").src = uri_images + s1["picture"]
+    document.getElementById("img2").src = uri_images + s2["picture"]
 
 </script>
