@@ -7,9 +7,36 @@
 
     <body>
         <div id=maincontent>
+            <img id="img1" src="" >
+            <img id="img2" src="" >
+            <img id="img3" src="" >
+            <img id="img4" src="" >
 
         </div>
     </body>
 </html>
+
+<script>
+    var saianc1
+    var saianc2
+    fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
+        function(response){
+             response.json().then(function(data){
+                saianc1 = data
+                })
+        }
+    )
+    fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
+        function(response){
+             response.json().then(function(data){
+                saianc2 = data
+                })
+        }
+    )
+    var uri_images = "https://otakuotake.herokuapp.com/images/"
+
+    s1 = saianc1[0]
+
+    document.getElementById("img1").src = uri_images + s1["picture"]
 
 </script>

@@ -21,4 +21,18 @@ Integration de données connectées
 
 lien de la githubpage https://melodyrous.github.io/sujet_rattrapage_M1/.  
 
+Code testé dans la console:
+```
+    var saianc1
+    fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
+        function(response){
+             response.json().then(function(data){
+                saianc1 = data
+                })
+        }
+    )
+```
+
+
+
 
