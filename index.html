@@ -1,19 +1,21 @@
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>Super Saïan</title>
-    </head>
 
-    <body>
-        <div id=maincontent>
-            <!-- <img id="img1" src="" >
+<head>
+    <meta charset="utf-8">
+    <title>Super Saïan</title>
+</head>
+
+<body>
+    <div id=maincontent>
+        <!-- <img id="img1" src="" >
             <img id="img2" src="" >
             <img id="img3" src="" >
             <img id="img4" src="" > -->
 
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>
 
 <script>
@@ -23,19 +25,43 @@
     var uri_images = "https://otakuotake.herokuapp.com/images/";
 
     fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
-        function(response){
-             response.json().then(function(data){
+        function (response) {
+            response.json().then(function (data) {
                 var main = document.getElementById("maincontent")
-                for (saian in data){
+                for (saian in data) {
                     var img = document.createElement("img");
                     img.src = uri_images + data[saian]["picture"];
                     main.appendChild(img)
                 }
-                
+
+
             })
         }
     )
-    // fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
+
+    Promise.all([
+    fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
+        function (response) {
+            response.json()
+        }),
+    fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
+        function (response) {
+            response.json()
+        }),
+
+    ]).then((function (data) {
+                var main = document.getElementById("maincontent")
+                for (saian in data) {
+                    var img = document.createElement("img");
+                    img.src = uri_images + data[saian]["picture"];
+                    main.appendChild(img)
+                }
+
+
+            })
+    )
+
+// fetch('https://otakuotake.herokuapp.com/get2randomcharacters').then(
     //     function(response){
     //          response.json().then(function(data){
     //             saianc2 = data
